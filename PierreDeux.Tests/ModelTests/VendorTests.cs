@@ -11,7 +11,15 @@ namespace PierreDeux.Tests
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor newVendor = new Vendor("test vendor");
+      //Arrange
+      string name = "testVendor";
+      Vendor newVendor = new Vendor(name);
+
+      //Act
+      string result = newVendor.Name;
+
+      //Assert
+      Assert.AreEqual(name, result);
     }
   }
 }
