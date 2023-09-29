@@ -83,5 +83,21 @@ namespace PierreDeux.Tests
       //Assert
       Assert.AreEqual(price, result);
     }
+    [TestMethod]
+    public void GetId_ReturnsId_Id()
+    {
+      //Arrange
+      string description = "one dozen baguettes";
+      string date = "09/29/23";
+      string title = "weekly order";
+      float price = 13.31f;
+
+      //Act
+      Order newOrder = new Order(description, title, price, date);
+      int result = newOrder.Id;
+
+      //Assert
+      Assert.AreEqual(newOrder.Id, result);
+    }
   }
 }
