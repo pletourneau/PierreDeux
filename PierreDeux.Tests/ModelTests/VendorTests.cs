@@ -46,5 +46,20 @@ namespace PierreDeux.Tests
       //Assert
       Assert.AreEqual(1, result);
     }
+    [TestMethod]
+    public void GetDescription_ReturnsDescription_String()
+    {
+      //Arrange
+      string name = "testVendor";
+      string description = "Safeway";
+      Vendor newVendor = new Vendor(name, description);
+
+      //Act
+      string result = newVendor.Description;
+
+      //Assert
+      Assert.AreEqual(description, result);
+    }
+
   }
 }
