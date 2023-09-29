@@ -31,7 +31,7 @@ namespace PierreDeux.Controllers
       Vendor selectedVendor = Vendor.Find(id);
       List<Order> vendorOrders = selectedVendor.Orders;
       model.Add("vendor", selectedVendor);
-      model.Add("order", vendorOrders);
+      model.Add("orders", vendorOrders);
       return View(model);
     }
 
@@ -47,5 +47,6 @@ namespace PierreDeux.Controllers
         model.Add("vendor", foundVendor);
         return View("Show", model);
       }
+      
   }
 }
