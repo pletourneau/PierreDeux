@@ -99,5 +99,27 @@ namespace PierreDeux.Tests
       //Assert
       Assert.AreEqual(newOrder.Id, result);
     }
+    [TestMethod]
+    public void GetAll_ReturnsAllOrderObjects_OrderList()
+    {
+    //Arrange
+    string title1 = "additional order";
+    string description1 = "one birthday cake";
+    string orderDate1 = "09/22/23";
+    float price1 = 1.01f;
+    string title2 = "Weekly order";
+    string description2 = "one dozen baguettes"; 
+    string orderDate2 = "09/20/23" ; 
+    float price2 = 13.31f;
+    Order newOrder1 = new Order(description1, title1, price1, orderDate1);
+    Order newOrder2 = new Order(description2, title2, price2, orderDate2);
+    List<Order> newList = new List<Order> { newOrder1, newOrder2 };
+
+    //Act
+    List<Order> result = Order.GetAll();
+
+    //Assert
+    CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
