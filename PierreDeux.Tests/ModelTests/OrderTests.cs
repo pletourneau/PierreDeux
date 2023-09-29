@@ -16,8 +16,24 @@ namespace PierreDeux.Tests
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Order newOrder = new Order("test", "title", 13.31f);
+      Order newOrder = new Order("test", "title", 13.31f, "09/29/23");
       Assert.AreEqual(typeof(Order), newOrder.GetType());
+    }
+    [TestMethod]
+    public void GetDescription_ReturnsDescription_String()
+    {
+      //Arrange
+      string description = "one dozen baguettes";
+      string date = "09/29/23";
+      string title = "weekly order";
+      float price = 13.31f;
+
+      //Act
+      Order newOrder = new Order(description, title, price, date);
+      string result = newOrder.Description;
+
+      //Assert
+      Assert.AreEqual(description, result);
     }
   }
 }
