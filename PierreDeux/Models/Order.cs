@@ -10,13 +10,17 @@ namespace PierreDeux.Models
    public int Id { get; }
 
    public float Price { get; set; }
-   public DateTime Date { get; set; }
+   public string Date { get; set; }
    private static List<Order> _instances = new List<Order> {};
 
-   public Order(string Description, string title, float Price)
+   public Order(string orderDescription, string orderTitle, float orderPrice, string orderDate)
    {
-    
-
+    Description = orderDescription;
+    Title = orderTitle;
+    Price = orderPrice;
+    Date = orderDate;
+    _instances.Add(this);
+    Id = _instances.Count;
    }
    public static void ClearAll()
     {
