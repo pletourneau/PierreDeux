@@ -6,14 +6,25 @@ using System;
 namespace PierreDeux.Tests
 {
   [TestClass]
-  public class VendorTests
+  public class VendorTests : IDisposable
   {
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+    }
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
+      Vendor newVendor = new Vendor("test vendor", "safeway");
+      Assert.AreEqual(typeof(Vendor), newVendor.GetType());
+    }
+    [TestMethod]
+    public void GetName_ReturnsName_String()
+    {
       //Arrange
       string name = "testVendor";
-      Vendor newVendor = new Vendor(name);
+      string description = "Safeway";
+      Vendor newVendor = new Vendor(name, description);
 
       //Act
       string result = newVendor.Name;
