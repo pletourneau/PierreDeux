@@ -13,9 +13,9 @@ namespace PierreDeux.Controllers
         return View(vendor);
       }
     [HttpGet("/vendors/{vendorId}/orders/{id}")]
-    public ActionResult Show(int vendorId, int orderId)
+    public ActionResult Show(int vendorId, int Id)
     {
-      Order order = Order.Find(orderId);
+      Order order = Order.Find(Id);
       Vendor vendor = Vendor.Find(vendorId);
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("order", order);

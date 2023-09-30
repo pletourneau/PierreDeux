@@ -7,7 +7,7 @@ namespace PierreDeux.Models
   {
    public string Description { get; set; }
    public string Title { get; set; }
-   public int Id { get; }
+   public int Id { get; set; }
 
    public float Price { get; set; }
    public string Date { get; set; }
@@ -32,7 +32,7 @@ namespace PierreDeux.Models
     }
     public static Order Find(int searchId)
     {
-      return _instances[searchId];
+      return _instances[searchId -1];
     }
   }
 }
