@@ -95,5 +95,20 @@ namespace PierreDeux.Tests
       //Assert
       Assert.AreEqual(newVendor2, result);
     }
+    
+    [TestMethod]
+    public void AddOrder_ShouldAddOrderToList()
+    {
+      // Arrange
+      Order newOrder = new Order("stuff", "title", 13f, "13/13/13");
+      Vendor newVendor = new Vendor("Safeway", "monopoly");
+
+      // Act
+      newVendor.AddOrder(newOrder);
+
+      // Assert
+      CollectionAssert.Contains(newVendor.Orders, newOrder);
+      
+    }
   }
 }
