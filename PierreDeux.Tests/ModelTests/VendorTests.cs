@@ -62,7 +62,7 @@ namespace PierreDeux.Tests
     }
     [TestMethod]
     public void GetAll_ReturnsAllVendorObjects_VendorList()
-      {
+    {
       //Arrange
       string name1 = "testVendor1";
       string description1 = "Safeway";
@@ -77,6 +77,23 @@ namespace PierreDeux.Tests
 
       //Assert
       CollectionAssert.AreEqual(newList, result);
-      }
+    }
+    [TestMethod]
+    public void Find_ReturnsCorrectVendor_Vendor()
+    {
+      //Arrange
+      string name01 = "TacoBell";
+      string name02 = "Safeway";
+      string desc01 = "tacos";
+      string desc02 = "Evil corporation";
+      Vendor newVendor1 = new Vendor(name01, desc01);
+      Vendor newVendor2 = new Vendor(name02, desc02);
+
+      //Act
+      Vendor result = Vendor.Find(2);
+
+      //Assert
+      Assert.AreEqual(newVendor2, result);
+    }
   }
 }
