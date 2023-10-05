@@ -121,5 +121,26 @@ namespace PierreDeux.Tests
     //Assert
     CollectionAssert.AreEqual(newList, result);
     }
+    [TestMethod]
+    public void Find_ReturnsCorrectOrder_Order()
+    {
+      //Arrange
+      string desc1 = "Tacos";
+      string title1 = "weekly order";
+      float price1 = 13f;
+      string date1 = "13/13/13";
+      string desc2 = "notTacos";
+      string title2 = "monthly order";
+      float price2 = 15f;
+      string date2 = "18/18/18";
+      Order newOrder1 = new Order(desc1, title1, price1, date1);
+      Order newOrder2 = new Order(desc2, title2, price2, date2);
+
+      //Act
+      Order result = Order.Find(2);
+
+      //Assert
+      Assert.AreEqual(newOrder2, result);
+    }
   }
 }
